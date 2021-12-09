@@ -10,6 +10,8 @@ services:
         docker_user: ${DOCKER_USER}
     restart: unless-stopped
     user: ${DOCKER_USER}
+    ports:
+      - "40000:40000" #debug port
     volumes:
       - ./app:/usr/src/app
       - ${GOPATH}/pkg:/go/pkg
