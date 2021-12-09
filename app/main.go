@@ -1,24 +1,26 @@
 package main
 
 import (
-    "fmt"
-//     "os"
-//     "github.com/joho/godotenv"
+	"fmt"
+	"github.com/joho/godotenv"
+	"github.com/pioz/faker"
+	"log"
+	"os"
+	"time"
 )
 
-var name string
+func init() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Ошибка загрузки .env файла")
+	}
+}
 
 func main() {
-fmt.Println("run")
-    fmt.Scanf("%s\n", &name)
+	for {
+		fmt.Println(faker.FirstName() + " " + faker.LastName())
+		fmt.Println(os.Getenv("ENV_TEST") + "\n")
 
-//   err := godotenv.Load()
-//   if err != nil {
-//     log.Fatal("Error loading .env file")
-//   }
-//
-//
-//     fmt.Println("run")
-//     fmt.Println(os.Getenv("DB_USER"))
-
+		time.Sleep(time.Second * 5)
+	}
 }

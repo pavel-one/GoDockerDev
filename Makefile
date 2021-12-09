@@ -3,4 +3,6 @@ up:
 down:
 	docker-compose down
 exec:
-	docker-compose exec app sh
+	docker-compose exec app bash
+log:
+	docker-compose logs -f app
