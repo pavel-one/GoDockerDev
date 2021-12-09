@@ -6,8 +6,8 @@ services:
       context: ./app
       dockerfile: ../docker/Dockerfile
       args:
-        DOCKER_UID: ${DOCKER_UID}
-        user: ${DOCKER_USER}
+        docker_id: ${DOCKER_UID}
+        docker_user: ${DOCKER_USER}
     restart: unless-stopped
     user: ${DOCKER_USER}
     volumes:
