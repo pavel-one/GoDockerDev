@@ -1,26 +1,20 @@
 package main
 
 import (
+	"app/core"
 	"fmt"
-	"github.com/joho/godotenv"
-	"log"
-	"os"
 	"time"
 )
 
+var App core.App
+
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Ошибка загрузки .env файла")
-	}
+	App = core.Load()
 }
 
 func main() {
-	var test = "string"
-	fmt.Println(test)
-
 	for {
-		fmt.Println(os.Getenv("ENV_TEST") + "\n")
+		fmt.Println(App.DB.Dsn + "\n")
 
 		time.Sleep(time.Second * 5)
 	}
