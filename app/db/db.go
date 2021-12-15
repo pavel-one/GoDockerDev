@@ -8,13 +8,13 @@ import (
 )
 
 type DB struct {
+	*gorm.DB
 	Port     string
 	Host     string
 	User     string
 	Password string
 	Database string
 	Dsn      string
-	Orm      *gorm.DB
 }
 
 func (db *DB) Connect() {
@@ -24,7 +24,7 @@ func (db *DB) Connect() {
 		log.Fatal("Ошибка подключения к БД " + err.Error())
 	}
 
-	db.Orm = connect
+	db.DB = connect
 }
 
 func Load() DB {

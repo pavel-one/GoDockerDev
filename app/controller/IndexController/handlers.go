@@ -1,7 +1,6 @@
 package IndexController
 
 import (
-	"app/Services/UserService"
 	"github.com/gin-gonic/gin"
 	"os"
 )
@@ -13,5 +12,5 @@ func Index(response *gin.Context) {
 		"message": "PING",
 	})
 
-	UserService.CreateTestUser()
+	//UserService.CreateTestUser()
 }

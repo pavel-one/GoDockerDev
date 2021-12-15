@@ -13,5 +13,5 @@ func CreateTestUser() {
 		Name:     gofakeit.FirstName(),
 	}
 
-	core.GetAppInstance().DB.Orm.Create(&u)
+	core.GetAppInstance().DB.Create(&u)
 }
