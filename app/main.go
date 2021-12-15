@@ -2,20 +2,16 @@ package main
 
 import (
 	"app/core"
-	"fmt"
-	"time"
 )
 
-var App core.App
-
 func init() {
-	App = core.Load()
+	core.Load()
 }
 
 func main() {
-	for {
-		fmt.Println(App.DB.Dsn + "\n")
+	core.GetAppInstance().Run()
+}
 
-		time.Sleep(time.Second * 5)
-	}
+func SuperTestFunc() string {
+	return "TEST"
 }
