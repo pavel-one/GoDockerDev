@@ -1,10 +1,15 @@
 package routes
 
 import (
-	"app/controllers"
-	"app/core"
+	"fmt"
+	"github.com/gin-gonic/gin"
 )
 
-func Web(app *core.App) {
-	app.Router.GET("/", controllers.Controller{DB: app.DB}.Index)
+func (r Route) Web() {
+	r.Router.GET("/", func(ctx *gin.Context) {
+		fmt.Println("TEST")
+		ctx.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
 }

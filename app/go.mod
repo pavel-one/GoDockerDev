@@ -11,6 +11,7 @@ require (
 
 require (
 	github.com/brianvoe/gofakeit/v6 v6.10.0 // indirect
+	github.com/gernest/ita v0.0.0-20161218171910-00d04c1bb701 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
