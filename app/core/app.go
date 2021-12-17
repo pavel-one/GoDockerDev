@@ -1,37 +1,29 @@
+//TODO: Сделать нормальную инциализацию роутов через роутер
+//TODO: Сделать нормальную инциализацию контроллеров через new
+
 package core
 
 import (
-	"app/db"
-	"app/routes"
-	"github.com/gin-gonic/gin"
+	"app/base"
 	"github.com/joho/godotenv"
 	"log"
 )
 
 type App struct {
-	DB     db.DB
-	Router *gin.Engine
+	DB     *base.DB
+	Router base.Router
 }
 
-var appInstance App
-
-func Load() {
-	//Init env
+func NewApp() *App {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Ошибка загрузки .env файла")
 	}
 
-	app := App{}
-	app.DB = db.Load()
-	app.Router = gin.Default()
-	routes.Routes(app.Router)
-
-	appInstance = app
-}
-
-func GetAppInstance() *App {
-	return &appInstance
+	return &App{
+		DB:     base.LoadDB(),
+		Router: base.LoadRouter(),
+	}
 }
 
 func (a App) Run() {

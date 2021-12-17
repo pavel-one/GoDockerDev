@@ -2,16 +2,13 @@ package main
 
 import (
 	"app/core"
+	"app/routes"
+	_ "github.com/brianvoe/gofakeit/v6"
 )
 
-func init() {
-	core.Load()
-}
-
 func main() {
-	core.GetAppInstance().Run()
-}
+	var app = core.NewApp()
+	routes.Web(app)
 
-func SuperTestFunc() string {
-	return "TEST"
+	app.Run()
 }

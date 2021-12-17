@@ -1,4 +1,4 @@
-package db
+package base
 
 import (
 	"gorm.io/driver/postgres"
@@ -27,7 +27,7 @@ func (db *DB) Connect() {
 	db.DB = connect
 }
 
-func Load() DB {
+func LoadDB() *DB {
 	db := DB{}
 
 	db.Port = os.Getenv("DB_PORT")
@@ -37,5 +37,5 @@ func Load() DB {
 	db.Database = os.Getenv("DB_NAME")
 	db.Connect()
 
-	return db
+	return &db
 }
