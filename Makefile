@@ -8,7 +8,7 @@ down:
 exec:
 	docker-compose exec app bash
 migrate:
-	docker-compose exec app migrate create -ext sql -dir db/migrations -seq ${name}
+	docker-compose exec app migrate create -ext sql -dir db/migrations ${name}
 test:
 	@echo $(DB_USER)
 migrate.up:
