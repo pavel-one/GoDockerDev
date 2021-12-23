@@ -9,8 +9,6 @@ exec:
 	docker-compose exec app bash
 migrate:
 	docker-compose exec app migrate create -ext sql -dir db/migrations ${name}
-test:
-	@echo $(DB_USER)
 migrate.up:
 	docker-compose exec app migrate -database "postgres://$(DB_PASSWORD):$(DB_USER)@$(DB_HOST):5432/dev?sslmode=disable" -path db/migrations up
 migrate.down:
