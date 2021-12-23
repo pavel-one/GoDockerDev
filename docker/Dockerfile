@@ -13,6 +13,9 @@ RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate
 # Build Delve
 RUN go install github.com/go-delve/delve/cmd/dlv@latest
 
+RUN apt-get update
+RUN apt-get install net-tools lsof
+
 WORKDIR /usr/src/app
 
 CMD ["air"]
