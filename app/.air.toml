@@ -4,5 +4,5 @@ tmp_dir = "tmp"
 [build]
 cmd = "go build -gcflags='all=-N -l' -o ./tmp/main ."
 bin = "tmp/main"
-full_bin = "bash bin/port.sh && dlv exec --accept-multiclient --log --headless --continue --listen :2345 --api-version 2 ./tmp/main"
+full_bin = "bash bin/port.sh && dlv exec --accept-multiclient --headless --continue --listen :2345 --api-version 2 ./tmp/main"
 include_ext = ["go", "tpl", "tmpl", "html", "env"]
