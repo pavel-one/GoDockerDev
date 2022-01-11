@@ -42,9 +42,4 @@ func (a App) LoadRoutes(providers ...func()) {
 	for _, provider := range providers {
 		provider()
 	}
-
-	//Через рефлексию ita не дебажится
-	//for _, provider := range providers {
-	//	ita.New(&route).Call(provider)
-	//}
 }
